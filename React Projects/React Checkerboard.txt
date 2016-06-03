@@ -1,0 +1,127 @@
+ BACK TO TRACKS
+Code Bundling & JSX 50%
+Introducing React 100%
+Components 75%
+Code Bundling & JSX 50%
+ Webpack
+ Webpack Quiz
+ (Optional) HTML Webpack Plugin
+ JSX
+ Nesting Components
+ Plotting Blocks
+ Stateless Functional Components
+ React Checkerboard
+Events & State 0%
+Routing 0%
+Modularization & Developer Tools 0%
+Ajax Calls 0%
+Managing Data 0%
+Redux 0%
+JS Front-End Frameworks React (v1) Code Bundling & JSX React Checkerboard   Russell Hello,  Russell P  
+React Checkerboard
+Build a React application that prompts a user for a number of rows, and then render the corresponding checkerboard. For example, a user entering "12" into the prompt would see the following in the browser. For an added challenge, have the user provide the checkerboard colors.
+
+
+
+How many components will you use? The following code might be a helpful guide to getting started. Notice that the "components" are written in the style of stateless functional components.
+
+function CheckerBoard (props) {
+  return /*Some UI... perhaps a list of rows?*/
+}
+
+function Row (props) {
+  return /*Some UI... perhaps a list of cells?*/
+}
+
+function Cell (props) {
+  return /*Some UI*/
+}
+
+// And feel free to use the following object:
+var styles = {
+  row: {height: '20px'},
+  cell: {height: '20px', width: '20px', display:'inline-block'},
+  colorA: {backgroundColor: 'black'},
+  colorB: {backgroundColor: 'red'}
+}
+Pair Program
+ 
+Discussion
+ 
+Ask Someone
+ 
+Answersheet
+Files
+
+unnamed_(1).png	
+June 03, 2016
+  No File Chosen UPLOAD
+React Checkerboard
+checkerboard-answersheet.js
+ 
+checkerboard-answersheet.js
+var React = require('react'),
+    ReactDOM = require('react-dom')
+// Set up a style object (this is best kept in another file and exported)
+var styles = {
+  row: {height: '20px'},
+  cell: {height: '20px', width: '20px', display:'inline-block'},
+  colorA: {backgroundColor: prompt('What should color 1 be?')},
+  colorB: {backgroundColor: prompt('What should color 2 be?')}
+}
+
+// APP COMPONENT
+function App (props){
+    return <CheckerBoard rows={props.rowNumbers}/>
+}
+
+// CHECKERBOARD COMPONENT
+function CheckerBoard (props){
+  // props.rows will equal the number collected from prompt in the App component
+
+  // Create an array to hold all our Row elements
+  var checkeredRows = [];
+
+  for(var i = 0; i < props.rows; i+=1 ) {
+    // For each row, create a row using the Row component. Pass down the number of cells to create, and the current row we're on -- we'll use that number to decide which color to start with.
+    checkeredRows.push(<Row key={i} rowNum = {i} cells = {props.rows}/>)
+  }
+  return (
+    <div>
+      {checkeredRows}
+    </div>
+  )
+}
+
+// ROW COMPONENT
+function Row (props){
+  // Use props.rowNum to decide what the colors are for odd/even cells
+  var colorA = (props.rowNum % 2 === 0 ) ? "colorA" : "colorB"
+  var colorB = (colorA === "colorA" ) ? "colorB" : "colorA"
+
+  var checkeredCells = [];
+
+  for(var i = 0; i < props.cells; i+=1 ) {
+    checkeredCells.push(<Cell key={i} color = { (i % 2 === 0) ? colorA : colorB } style={styles.cell}/>)
+  }
+  return (
+    <div style={styles.row}>
+      {checkeredCells}
+    </div>
+  )
+}
+
+// CELL COMPONENT
+function Cell (props) {
+  // The only purpose of this component is to render a div with the correct styling, which we've linked to a property the Row parent passed down.
+  return (
+    // Need to use Object.assign to turn two style objects into one
+    <div style={ Object.assign({}, styles.cell, styles[props.color]) }></div>
+  )
+}
+
+// RENDERING TIME! Render app and pass down the results of a prompt.
+ReactDOM.render(<App rowNumbers={prompt("How many rows should the checkerboard have?")} />, document.getElementById('app'))
+Privacy Policy Report a mistake? Highlight the content that's wrong first.
+ PREVIOUS  NEXT
+Report a mistake
