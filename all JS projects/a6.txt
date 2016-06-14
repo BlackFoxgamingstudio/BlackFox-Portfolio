@@ -1,0 +1,21 @@
+<script>
+
+
+function vehicleConstructor(name, numberOfWheels, numberOfPassengers){
+	var vehicle = {}
+	vehicle.name = name;
+	vehicle.numberOfWheels = numberOfWheels;
+	vehicle.numberOfPassengers = numberOfPassengers;
+	vehicle.makeNoise = function(){ console.log("ring ring"); }
+	return vehicle;
+}
+
+var sedan = vehicleConstructor('Panamera',1,1);
+console.log(sedan.numberOfPassengers);
+sedan.makeNoise = function(){ console.log("honk honk!")}
+sedan.makeNoise();
+sedan.pickUpPassengers = function(num){ this.numberOfPassengers += num; }
+sedan.pickUpPassengers(5);
+console.log(sedan.numberOfPassengers);
+
+</script>

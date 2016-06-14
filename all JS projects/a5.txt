@@ -1,0 +1,51 @@
+<script>
+
+function setName(name){
+	person = { 
+		name: name,
+		distance_travelled: 0,
+		say_name: function(){
+		alert("hello " + person.name);
+		},
+		say_something: function(something){
+			alert(something);
+		},
+		walk: function(){
+			alert(person.name + " is walking.")
+		},
+		run: function(){
+			alert(person.name + " is running.")
+		},
+		crawl: function(){
+			alert(person.name + " is crawling.")
+		}
+	}
+	return person
+}
+
+var object = setName("Russell");
+object.say_name();
+person.say_something("BOOM");
+person.walk();
+person.run();
+person.crawl();
+console.log(object);
+
+
+function NinjaGenerator(name){
+	var ninja = {
+		name: name,
+		belt_level: 1,
+		levelUp: function(){
+			ninja.belt_level++;
+		}
+	}
+	return ninja;
+}
+
+var newNinja = NinjaGenerator("SenseiPowers");
+newNinja.levelUp();
+console.log(newNinja);
+
+
+</script>

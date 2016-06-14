@@ -1,0 +1,31 @@
+<script >
+
+var x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+for(index in x)
+{
+	console.log(x[index]);
+}
+
+x.push(100);
+console.log(x);
+
+x.push(['1','2','3']);
+console.log(x);
+
+
+for(var i = 0, sum = 0; i <= 500; i++)
+{
+	sum += i;
+}
+console.log(sum);
+
+var arr = [1, 5, 90, 25, -3, 0];
+min = arr[0];
+for(index in arr)
+{
+	if(arr[index] < min)
+		min = arr[index]
+}
+console.log(min);
+
+</script>

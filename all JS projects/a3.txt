@@ -1,0 +1,91 @@
+<script >
+
+function sumThem(x,y){
+	for(var i = x, sum = 0; i <= y; i++)
+	{
+		sum += i;
+	}
+	console.log(sum);
+}
+sumThem(1,10);
+
+function findMin(arr){
+	var min = arr[0];
+	for(index in arr)
+	{
+		arr[index]
+		if(arr[index] < min)
+		{
+			min = arr[index]
+		}
+	}
+	return min;
+}
+var min = findMin([1,9,12,7,-9]);
+console.log(min);
+
+function findAverage(arr){
+	var sum = 0;
+	for(index in arr)
+	{
+		sum += arr[index];
+	}
+	index++
+	var average = (sum/index);
+	return average;
+}
+var average = findAverage([10,20]);
+console.log(average);
+
+function standAlone(){
+
+}
+
+(function(){
+	console.log("Anonymous");
+});
+
+var assigned = function(){
+
+}
+
+var person = {
+	name: 'Trey',
+	distance_travelled: 0,
+	say_name: function(){
+		alert("hello " + this.name);
+	},
+	say_something: function(something){
+		alert(something);
+	},
+	walk: function(){
+		alert(this.name + " is walking.")
+		this.distance_travelled += 3;
+		console.log(this.distance_travelled);
+	},
+	run: function(){
+		alert(this.name + " is running.")
+		this.distance_travelled += 10;
+		console.log(this.distance_travelled);
+	},
+	crawl: function(){
+		alert(this.name + " is crawling.")
+		this.distance_travelled += 1;
+		console.log(this.distance_travelled);
+	}
+}
+
+person.say_name("russell");
+person.say_something("booom");
+person.walk();
+person.run();
+person.crawl();
+
+
+
+
+
+
+
+
+</script>

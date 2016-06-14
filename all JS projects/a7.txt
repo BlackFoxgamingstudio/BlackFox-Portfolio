@@ -1,0 +1,51 @@
+<script>
+
+
+function vehicleConstructor(name, numberOfWheels, numberOfPassengers, speed){
+	var that = this;
+
+	this.name = name;
+	this.numberOfWheels = numberOfWheels;
+	this.numberOfPassengers = numberOfPassengers;
+	this.speed = speed;
+	
+	var distance_travelled = 0;
+
+	var updateDistanceTravelled = function(){ 
+		console.log("inside a this.updateDistanceTravelled: ", this);
+		distance_travelled += that.speed;
+	}
+
+	this.makeNoise = function(){ 
+		console.log("ring ring"); 
+		console.log("inside a this.makeNoise: ", this);
+		return this;
+	}
+	this.checkMiles = function(){
+		console.log("Checking distance travelled: ", distance_travelled);
+		return this;
+	}
+	this.move = function(){
+		updateDistanceTravelled();
+		return this;
+	}
+}
+
+var test = new vehicleConstructor('Panamera', 10,20,30);
+console.log(test);
+
+var sedan = new vehicleConstructor('Panamera',1,1,10);
+console.log(sedan.numberOfPassengers);
+sedan.makeNoise = function(){ console.log("honk honk!")}
+sedan.makeNoise();
+sedan.pickUpPassengers = function(num){ this.numberOfPassengers += num; }
+sedan.pickUpPassengers(5);
+sedan.move().move().move().checkMiles();
+
+var sedanB = new vehicleConstructor('Panamera',1,1,10);
+sedanB.move().move();
+sedanB.makeNoise();
+sedanB.checkMiles();
+sedan.checkMiles();
+
+</script>
