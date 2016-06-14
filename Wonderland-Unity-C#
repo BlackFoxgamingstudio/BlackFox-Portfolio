@@ -1,0 +1,51 @@
+using UnityEngine;
+using System.Collections;
+
+public class NumberWizards : MonoBehaviour {
+	bool condition; 
+	string A;
+	string W; 
+	// Use this for initialization
+	void Start (){
+	StartGame();
+		}
+	void StartGame () {
+		 A = "Alice";
+		 W = "The White Rabbit";
+		condition = true;
+		print ("======45======BlackFox====Studios======");
+		print ("Welcome to Wonderland");
+		print ("are you the white rabit are are you Alice?");
+		print ("up = Alice, down = The white rabbit, return = select");
+
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			print (A);
+			print ("Alice does not want to grow up! she is a dreamer with a priceless imagination. Alice doent know what she wants to do with her life but knows it starts with a great idea and a wonderful adventure.");
+
+			print ("up = Alice, down = The white rabbit, return = select");
+			condition = true;
+
+		} else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+			print (W);
+			print ("the white rabit wants to use his time to complete as many project as he can for his queen. the White rabit is a small anamel with great ambous secretly the white rabat wants to be king one day. ");
+
+			print ("up = Alice, down = The white rabbit, return = select");
+			condition = false;
+			}
+		else if (Input.GetKeyDown(KeyCode.Return)) {
+			if(condition){
+				print ("you have selected: .........ALICE!!!");
+			} 
+			else
+			{
+				print ("you have selected: ................THE WHITE RABIT!!!!");
+			}
+		}
+
+}
+}
